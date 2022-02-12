@@ -1,0 +1,72 @@
+{
+  "name": "@package/name",
+  "version": "0.0.0-development",
+  "description": "A library starter template.",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{username}/{repo}"
+  },
+  "scripts": {
+    "prepack": "unbuild",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "commit": "cz",
+    "commit:all": "git add . && cz",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@apenhet/eslint-config": "latest",
+    "@hackmd/meta-marked": "^0.5.0",
+    "c8": "^7.11.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "latest",
+    "semantic-release": "^19.0.2",
+    "unbuild": "latest",
+    "vite-plugin-windicss": "^1.6.3",
+    "vitepress": "^0.21.6",
+    "vitest": "latest",
+    "windicss": "^3.4.3"
+  },
+  "eslintConfig": {
+    "extends": "@apenhet",
+    "ignorePatterns": [
+      "!.vitepress"
+    ]
+  },
+  "unbuild": {
+    "declaration": true,
+    "entries": [
+      "./src/index"
+    ],
+    "rollup": {
+      "emitCJS": true
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main",
+      "master"
+    ]
+  }
+}
